@@ -17,6 +17,7 @@ if (isset($_GET['edad'])) {
 <body>
     <h1>Identificación de mayoría de edad</h1>
     <!-- form>label{¿Cuál es tu edad?}+input:number+button{Verificar la edad} -->
+     <!-- http://tudominio.com/mayor_edad_web.php?edad=15 -->
     <form method="get">
         <label for="edad">
             ¿Cuál es tu edad?
@@ -31,8 +32,10 @@ if (isset($_GET['edad'])) {
             Verificar la edad
         </button>
     </form>
-    <?php if (isset($es_mayor)) { ?>
-    <h3>Aqui vamos, ya hace hambre</h3>
+    <?php if (isset($es_mayor) and $es_mayor) { ?>
+    <h3>Eres mayor de edad</h3>
+    <?php } elseif (isset($es_mayor) and !$es_mayor) { ?>
+    <h3>Eres menor de edad</h3>
     <?php } ?>
 </body>
 </html>
